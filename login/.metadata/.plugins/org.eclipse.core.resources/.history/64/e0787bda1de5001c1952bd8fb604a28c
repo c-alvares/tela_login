@@ -1,0 +1,19 @@
+package control;
+
+import java.util.ArrayList;
+
+import model.User;
+
+public class ProcessUser {
+
+	public static ArrayList<User> users = new ArrayList<>();
+	public static UserDAO ud = new UserDAO();
+	
+	public static void load() {
+		user = ud.open();
+	}
+	
+	public static int checkEmail(String email) {
+		
+	}
+}

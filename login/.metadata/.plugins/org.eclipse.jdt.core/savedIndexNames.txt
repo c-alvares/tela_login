@@ -1,0 +1,4 @@
+INDEX VERSION 1.131+C:\Users\oryc1\OneDrive\Área de Trabalho\salao\login\.metadata\.plugins\org.eclipse.jdt.core
+1099648098.index
+390100797.index
+1865797976.index

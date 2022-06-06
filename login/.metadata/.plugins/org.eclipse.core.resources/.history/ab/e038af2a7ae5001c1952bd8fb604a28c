@@ -1,0 +1,18 @@
+package view;
+
+import java.util.Scanner;
+
+import control.ProcessUser;
+
+public class VerifyView {
+
+	static Scanner scan = new Scanner(System.in);
+	
+	public static void main(String[] args) {
+		ProcessUser.load();
+		System.out.println("Informe o e-mail: ");
+		int index = ProcessUser.emailCheck(scan.next)
+
+	}
+
+}

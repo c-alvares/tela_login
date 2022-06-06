@@ -1,0 +1,74 @@
+package view;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+import control.ProcessUser;
+
+public class LoginView extends JFrame implements ActionListener {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel panel;
+	private JLabel label1, label2;
+	private JTextField email, password;
+	private JButton login;
+
+	LoginView() {
+		setTitle("Tela de Login");
+		setBounds(550, 250, 350, 240)
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		panel = new JPanel();
+		setContentPane(panel);
+		setLayout(null);
+		
+		label1 = new JLabel("Email:");
+		label1.setBounds(20, 20, 100, 20);
+		email = new JTextField();
+		email.setBounds(120, 20, 200, 30);
+		label2 = new JLabel("Senha:");
+		label2.setBounds(20, 60, 100, 20);
+		password = new JTextField();
+		password.setBounds(120, 60, 200, 30);
+		login = new JButton("Login");
+		login.setBounds(120, 100, 200, 30);
+		
+		login.addActionListener(this);
+		
+		panel.add(label1);
+		panel.add(email);
+		panel.add(label2);
+		panel.add(password);
+		panel.add(login);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == login) {
+			int index = ProcessUser.emailCheck(email.getText());
+			if (index != -1) {
+				if (ProcessUser.passwordCheck(index, password.getText())) {
+					JOptionPane.showMessageDialog(this, "Login efetuado com Sucesso");
+					this.dispose();
+				} else {
+					JOptionPane.showMessageDialog(this, "Falha no login");
+				}
+			} else {
+				JOptionPane.showMessageDialog(this, "Usuário não localizado");
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		ProcessUser.load();
+		LoginView view = new LoginView();
+		view.setVisible(true);
+
+	}
+}

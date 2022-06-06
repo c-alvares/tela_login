@@ -1,0 +1,9 @@
+package control;
+
+import java.io.BufferedReader;
+
+public class UserDAO {
+
+	private BufferedReader br;
+	private String path = "C:\\Users\\oryc1\\OneDrive\\Área de Trabalho\\salao\\login\\salao\\dados\\user.csv"
+}
